@@ -4,6 +4,7 @@ import time
 
 data = []
 selectedBooks = []
+headers = []
 
 with open('data/books.json') as file:
   data = json.load(file)
@@ -23,14 +24,22 @@ def selectBook(data, selectedBooks):
     clear()
     counter = 0
     for book in data:
-        if book["status"] == 0:
+        if book["status"] == "0":
             stringToPrint = "[{}.] {}: {}".format(book["ID"], book["title"], book["author"])
             print(stringToPrint)
             counter += 1
     if counter > 0:
         print('Select a book! (enter the books id number)')
         selectedBookID = input()
-        selectedBooks.append(selectedBookID)
+        for book in selectedBooks:
+            if book == selectedBookID:
+                print('You already selected that book!')
+                time.sleep(3)
+            if book != selectedBookID:
+                selectedBooks.append(selectedBookID)
+        if len(selectedBooks) == 0:  
+            selectedBooks.append(selectedBookID)
+
     else:
         print("Oh no! There aren't any books available. Come back later!")
         time.sleep(5)
@@ -63,9 +72,16 @@ def checkIn(data, selectedBooks):
     print("Check in complete! Thank you!")
     time.sleep(5)
         
+def generateHeader():
+    headerString1 = "Books selected: "+ str(len(selectedBooks))
+    headerString2 = "--------------------------------"
+    return [headerString1, headerString2]
+
     
 def chooseAction():
     clear()
+    print(headers[0])
+    print(headers[1])
     print("Choose a task...")
     print("[1.] Select Books")
     print("[2.] Check Out Books")
@@ -79,4 +95,5 @@ def chooseAction():
         checkIn(data, selectedBooks)
 
 while True:
+    headers = generateHeader()
     chooseAction()
