@@ -4,34 +4,39 @@
     "title": "A Christmas Carol",
     "author": "Charles Dickins",
     "ISBN": "9780439101332",
-    "status": "0"
+    "status": "0",
+    "location": "z1"
   },
   {
     "ID": "2",
     "title": "How to Read Literature Like a Professor",
     "author": "Thomas C. Foster",
     "ISBN": "9780062301673",
-    "status": "0"
+    "status": "0",
+    "location": "z1"
   },
   {
     "ID": "3",
     "title": "The Kite Runner",
     "author": "Khaled Hosseini",
     "ISBN": "9781594631931",
-    "status": "0"
+    "status": "0",
+    "location": "z1"
   },
   {
     "ID": "4",
     "title": "Where the Crawdads Sing",
     "author": "Delia Owens",
     "ISBN": "9780735219090",
-    "status": "0"
+    "status": "0",
+    "location": "z1"
   },
   {
     "ID": "5",
     "title": "To Kill a Mockingbird",
     "author": "Harper Lee",
     "ISBN": "9780062428554",
-    "status": "0"
+    "status": "0",
+    "location": "z1"
   }
 ]
