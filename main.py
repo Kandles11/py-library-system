@@ -3,11 +3,15 @@ import os
 import time
 
 data = []
-selectedBooks = []
-headers = []
+userData = []
+
 
 with open('data/books.json') as file:
   data = json.load(file)
+  
+with open('data/users.json') as file:
+  userData = json.load(file)
+
 
 class Book:
     def __init__(self, title, author, isbn, id):
@@ -21,13 +25,17 @@ class Book:
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def checkOut(data):
+def checkOut(data, userData):
     clear()
     print("Enter UserID..")
     userIdInput = input()
+    for user in userData:
+        if userIdInput == user["ID"]:
+            userName = user["fullName"]
+    
     while True:
         clear()
-        print("Username:", userIdInput)
+        print("Username:", userName)
         print("......................")
         print("Enter BookID...")
         bookIdInput = input()
@@ -64,7 +72,7 @@ def chooseAction():
     print("[2.] Check In Books")
     userInput = input()
     if userInput == "1":
-        checkOut(data)
+        checkOut(data, userData)
     if userInput == "2":
         checkIn(data)
 
